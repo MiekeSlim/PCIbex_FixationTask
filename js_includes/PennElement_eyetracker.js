@@ -1,6 +1,8 @@
 // EYETRACKER element
 /* $AC$ PennController.newEyeTracker(name) Creates a new EyeTracker element $AC$ */
 /* $AC$ PennController.getEyeTracker(name) Retrieves an existing EyeTracker element $AC$ */
+var Hres = "400px"      // height of the set screen (in px)
+var Wres = "300px"      // width of the set screen (in px)
 
 window.PennController._AddElementType("EyeTracker", function(PennEngine) {
 
@@ -107,8 +109,6 @@ window.PennController._AddElementType("EyeTracker", function(PennEngine) {
         return Math.round(precision);
     };
 
-
-
     // Shows a calibration screen
     function calibrate(resolve, element, threshold, remainingAttempts){
         // Start training the model
@@ -124,11 +124,13 @@ window.PennController._AddElementType("EyeTracker", function(PennEngine) {
         // Will print a button in the middle of the screen
         let startCalculation = ()=>{
             calibrationDiv.find('button').remove();
-            calibrationDiv.append($("<button>+</button>").css({
-                position: 'absolute', top: 'calc(0.5*97vh - 0.0125*97vw)', bottom: 'calc(0.4875*97vw)', width: "2.5vw", height: "2.5vw"
+            calibrationDiv.append($("<button>Click<br>here!</button>").css({
+                position: 'absolute', top: "calc(50vh - 1.5vw)", left: "48.5vw", width: "3vw", height: "3vw"
             }).click(function(){
                 // Launches calculation per se
-                $(this).attr('disabled', true);
+        $(this).attr('disabled', true);
+        calibrationDiv.find('button').remove();
+        calibrationDiv.append($("<p> Look<br>here! <\p>").css({position: 'absolute', top: "calc(50vh - 1.5vw)", left: "48.5vw"}));    
                 storePoints = true;
                 setTimeout(()=>{
                     console.log("Past 50", past50Array);
@@ -198,29 +200,29 @@ window.PennController._AddElementType("EyeTracker", function(PennEngine) {
                 showTracker(false);
                 // getGazer().showPredictionPoints(true);
                 calibrationDiv
-                    .append($("<button>+</button>").css({
-                        position: 'absolute', top: 0, left: 0, width: "2.5vw", height: "2.5vw"
+                    .append($("<button>Click<br>here!</button>").css({
+                        position: 'absolute', top: 0, left: 0, width: "3vw", height: "3vw"
                     }).click(click))
-                    .append($("<button>+</button>").css({
-                        position: 'absolute', top: 0, right: 0, width: "2.5vw", height: "2.5vw"
+                    .append($("<button>Click<br>here!</button>").css({
+                        position: 'absolute', top: 0, right: 0, width: "3vw", height: "3vw"
                     }).click(click))
-                    .append($("<button>+</button>").css({
-                        position: 'absolute', bottom: 0, left: 0, width: "2.5vw", height: "2.5vw"
+                    .append($("<button>Click<br>here!</button>").css({
+                        position: 'absolute', bottom: 0, left: 0, width: "3vw", height: "3vw"
                     }).click(click))
-                    .append($("<button>+</button>").css({
-                        position: 'absolute', bottom: 0, right: 0, width: "2.5vw", height: "2.5vw"
+                    .append($("<button>Click<br>here!</button>").css({
+                        position: 'absolute', bottom: 0, right: 0, width: "3vw", height: "3vw"
                     }).click(click))
-                    .append($("<button>+</button>").css({
-                        position: 'absolute', top: 'calc(50vh - 1.25vw)', left: 0, width: "2.5vw", height: "2.5vw"
+                    .append($("<button>Click<br>here!</button>").css({
+                        position: 'absolute', top: 'calc(50vh - 1.25vw)', left: 0, width: "3vw", height: "3vw"
                     }).click(click))
-                    .append($("<button>+</button>").css({
-                        position: 'absolute', top: 0, left: '48.75vw', width: "2.5vw", height: "2.5vw"
+                    .append($("<button>Click<br>here!</button>").css({
+                        position: 'absolute', top: 0, left: '48.75vw', width: "3vw", height: "3vw"
                     }).click(click))
-                    .append($("<button>+</button>").css({
-                        position: 'absolute', top: 'calc(50vh - 1.25vw)', right: 0, width: "2.5vw", height: "2.5vw"
+                    .append($("<button>Click<br>here!</button>").css({
+                        position: 'absolute', top: 'calc(50vh - 1.25vw)', right: 0, width: "3vw", height: "3vw"
                     }).click(click))
-                    .append($("<button>+</button>").css({
-                        position: 'absolute', bottom: 0, left: '48.75vw', width: "2.5vw", height: "2.5vw"
+                    .append($("<button>Click<br>here!</button>").css({
+                        position: 'absolute', bottom: 0, left: '48.75vw', width: "3vw", height: "3vw"
                     }).click(click));
             }));
             showTracker(true);
