@@ -65,7 +65,7 @@ PennController("Checks",
             .wait()
         )
 )
-
+*/
 // Welcome page 
 PennController("Welcome",
     newText("WelcomeText", "<p>Welcome and thank you for participating in this pilot! </p><p> </p><p> In this experiment, which should take roughly 5 minutes to finsih, a cross (+) will appear at various positions on your screen. The task is very simple: Please look at each cross that appears. <br> <br> We will use you webcam to follow your eye movements during this task. It is therefore important that you are in a well-lit and quiet environment. Please turn off your mobile phone or other devices that may distract you during this task. Also, please close other websites that you may have open.</p> <p> The purpose of this pilot is to test the accuracy of webcams to follow eye movements. If you have any questions about this experiment, you can contact me via email: mieke.slim@ugent.be </p>")
@@ -86,7 +86,6 @@ PennController("Welcome",
         .wait()
 )
 
-*/
 //Webcam set-up and calibration
 newTrial("WebcamSetUp", 
     newText("WebcamInstructions", "<p> Before the task begins, we need to calibrate your webcam so the experiment can follow your eye movements. On the next page, a calibration procedure will start. First, you will see the webcam recording on the top left corner of your screen. <br><br> Please make sure your face is fully visible. If you wear glasses, please make sure that they are not reflecting any ambient light.</p>")
