@@ -139,7 +139,7 @@ window.PennController._AddElementType("EyeTracker", function(PennEngine) {
                     document.getElementById("countdown").innerHTML = "Look here! <br>" + timeleft;
                   }
                   timeleft -= 1;
-            $("<div>").html("countdown");
+            $("<div>").html(id="countdown");
             }, 1000);
                 storePoints = true;
                 setTimeout(()=>{
