@@ -1,4 +1,5 @@
 
+/*
 PennController.ResetPrefix(null) // Shorten command names (keep this)
 PennController.DebugOff() // Don't show the debug window
 
@@ -85,6 +86,7 @@ PennController("Welcome",
         .wait()
 )
 
+*/
 //Webcam set-up and calibration
 newTrial("WebcamSetUp", 
     newText("WebcamInstructions", "<p> Before the task begins, we need to calibrate your webcam so the experiment can follow your eye movements. On the next page, a calibration procedure will start. First, you will see the webcam recording on the top left corner of your screen. <br><br> Please make sure your face is fully visible. If you wear glasses, please make sure that they are not reflecting any ambient light.</p>")
