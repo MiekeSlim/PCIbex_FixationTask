@@ -131,7 +131,7 @@ window.PennController._AddElementType("EyeTracker", function(PennEngine) {
                 // Launches calculation per se
         $(this).attr('disabled', true);
         calibrationDiv.find('button').remove();
-        calibrationDiv.append($("countdown") //.css({position: 'absolute', top: "calc(50vh - 1.5vw)", left: "48.5vw"}));
+        calibrationDiv.append($(id="countdown"); //.css({position: 'absolute', top: "calc(50vh - 1.5vw)", left: "48.5vw"}));
             // timer for validation
             var timeleft = 3;
             var downloadTimer = setInterval(function(){
