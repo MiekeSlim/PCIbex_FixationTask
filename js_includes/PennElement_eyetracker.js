@@ -135,7 +135,7 @@ window.PennController._AddElementType("EyeTracker", function(PennEngine) {
                     0%{opacity: 0;}
                     50%{opacity: .5;}
                     100%{opacity: 1;}
-                    }));    
+                    });    
                 storePoints = true;
                 setTimeout(()=>{
                     console.log("Past 50", past50Array);
