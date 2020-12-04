@@ -130,12 +130,7 @@ window.PennController._AddElementType("EyeTracker", function(PennEngine) {
          // Launches calculation per se
         $(this).attr('disabled', true);
         calibrationDiv.find('button').remove();
-        calibrationDiv.append($("<p>+</p>").css({position: 'absolute', top: "calc(50vh - 1.5vw)", left: "48.5vw", width: "5vw", height: "5vw"}
-                    @keyframes{
-                    0%{opacity: 0;}
-                    50%{opacity: .5;}
-                    100%{opacity: 1;}
-                    });    
+        calibrationDiv.append($("<p>+</p>").css({position: 'absolute', top: "calc(50vh - 1.5vw)", left: "48.5vw", width: "5vw", height: "5vw"});    
                 storePoints = true;
                 setTimeout(()=>{
                     console.log("Past 50", past50Array);
