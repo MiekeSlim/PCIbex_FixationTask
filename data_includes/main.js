@@ -1,5 +1,3 @@
-
-/*
 PennController.ResetPrefix(null) // Shorten command names (keep this)
 PennController.DebugOff() // Don't show the debug window
 
@@ -65,7 +63,7 @@ PennController("Checks",
             .wait()
         )
 )
-*/
+
 // Welcome page 
 PennController("Welcome",
     newText("WelcomeText", "<p>Welcome and thank you for participating in this pilot! </p><p> </p><p> In this experiment, which should take roughly 5 minutes to finsih, a cross (+) will appear at various positions on your screen. The task is very simple: Please look at each cross that appears. <br> <br> We will use you webcam to follow your eye movements during this task. It is therefore important that you are in a well-lit and quiet environment. Please turn off your mobile phone or other devices that may distract you during this task. Also, please close other websites that you may have open.</p> <p> The purpose of this pilot is to test the accuracy of webcams to follow eye movements. If you have any questions about this experiment, you can contact me via email: mieke.slim@ugent.be </p>")
