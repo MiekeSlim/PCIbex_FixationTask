@@ -15,13 +15,13 @@ PennController("Checks",
     ,
     newText("Consent", "<br><br> We will use your webcam to collect data on where you are looking on the screen. We will <b> not </b> collect any video data or any other type of data that may reveal your identity. Do you give us permission to use your webcam?<br><br>")
         .center()
-	.print()
+    .print()
     ,
     newButton("yesConsent", "Yes")
     ,
     newButton("noConsent", "No")
         .settings.before( getButton("yesConsent") )
-	.center()       
+    .center()       
         .print()
     ,
     newSelector("yesnoConsent")
@@ -38,7 +38,7 @@ PennController("Checks",
             newKey("SPACE")
             .wait()
         )         
-    ,	       
+    ,          
     newText("Chrome", "<br><br>Are you currently using <b> Google Chrome Desktop </b>? <br><br>")
         .print()
     ,
@@ -49,7 +49,7 @@ PennController("Checks",
         .print()
     ,
     newSelector("yesnoChrome")
-	.center()       
+    .center()       
         .settings.add( getButton("yesChrome") , getButton("noChrome"))
         .wait()
     ,
@@ -134,65 +134,73 @@ newTrial("Instructions",
     newButton("Go to the first trial").print().wait()
     ,
     newVar("trialsLeftbeforeCalibration", 9)
-	.global()	
+    .global()   
 )
 
 PennController.Template("FixationTrials.csv",
     row => PennController("Trials", 
-		// The callback commands lets us log the X and Y coordinates of the estimated gaze-locations at each recorded moment in time (Thanks to Jeremy Zehr for helping us construct this command)
+        // The callback commands lets us log the X and Y coordinates of the estimated gaze-locations at each recorded moment in time (Thanks to Jeremy Zehr for helping us construct this command)
             newEyeTracker("tracker",1).callback( (x,y)=>{
-						    getEyeTracker("tracker")._element.counts._Xs.push(x);
-						    getEyeTracker("tracker")._element.counts._Ys.push(y);
-						})
-							,
-							newFunction(()=>{
-							    getEyeTracker("tracker")._element.counts._Xs = [];
-							    getEyeTracker("tracker")._element.counts._Ys = [];
-						}).call()  
+                            getEyeTracker("tracker")._element.counts._Xs.push(x);
+                            getEyeTracker("tracker")._element.counts._Ys.push(y);
+                        })
+                            ,
+                            newFunction(()=>{
+                                getEyeTracker("tracker")._element.counts._Xs = [];
+                                getEyeTracker("tracker")._element.counts._Ys = [];
+                        }).call()  
             ,
-		 	getVar("trialsLeftbeforeCalibration")
-				.test.is(0)
-				.success(
-				    newFunction( ()=>{
-						$("body").css({
-						width: '100vw',
-						height: '100vh',
-						cursor: 'default'
-					       });
-					}).call()
-					,
-					getEyeTracker("tracker").calibrate(5)
-					,
-					newFunction( ()=>{
-						$("body").css({
-							width: '100vw',
-							height: '100vh',
-							cursor: 'none'
-					       });
-						}).call()
-				    ,
-				    getVar("trialsLeftbeforeCalibration")
-								.set(9)
-					)
-		,	
-		// Hide the cursor
+            getVar("trialsLeftbeforeCalibration")
+                .test.is(0)
+                .success(
+                    newFunction( ()=>{
+                        $("body").css({
+                        width: '100vw',
+                        height: '100vh',
+                        cursor: 'default'
+                           });
+                    }).call()
+                    ,
+                    getEyeTracker("tracker").calibrate(5)
+                    ,
+                    newFunction( ()=>{
+                        $("body").css({
+                            width: '100vw',
+                            height: '100vh',
+                            cursor: 'none'
+                           });
+                        }).call()
+                    ,
+                    getVar("trialsLeftbeforeCalibration")
+                                .set(9)
+                    )
+        ,   
+        // Hide the cursor
         newFunction( ()=>{
-		    $("body").css({
-			width: '100vw',
-			height: '100vh',
-			cursor: 'none'
-		   });
-		}).call()
+            $("body").css({
+            width: '100vw',
+            height: '100vh',
+            cursor: 'none'
+           });
+        }).call()
         ,
         newText("fixationText", "<p>+</p>")
                 .settings.css("font-size", "25vh")
                     .settings.css("font-family", "avenir")
                     .settings.color("black")
         ,
+        newCanvas("FixationCross", "25vh", "25vh") // Tracked canvases are slighlty larged than the fixation cross (note that we use 'vh' to determine the canvas width as well, so it's a square)
+            .add("center at 50%" , "middle at 50%" , getText("fixationText").css("font-size", "5vh"))
+            .print("center at 50%" , "middle at 50%")
+        ,
+        newTimer(500)
+            .start()
+            .wait()
+        ,       
         newCanvas("trackedCanvas", "25vh", "25vh") // Tracked canvases are slighlty larged than the fixation cross (note that we use 'vh' to determine the canvas width as well, so it's a square)
-		    .add( "center at 50%" , "middle at 50%" , getText("fixationText") )
-		    .print(row.X_position, row.Y_position)
-	,		      
+            .add( "center at 50%" , "middle at 50%" , getText("fixationText") )
+            .print(row.X_position, row.Y_position)
+        ,             
         getEyeTracker("tracker")                 
             .add(getCanvas("trackedCanvas"))  
             .start()
@@ -203,21 +211,21 @@ PennController.Template("FixationTrials.csv",
             .wait()
         ,
         getEyeTracker("tracker").stop() // Stop now to prevent collecting unnecessary data
-		,
-		getVar("trialsLeftbeforeCalibration")
-			.set( v => v-1)		      
-	)
-	.setOption("hideProgressBar", true)
-    	.log( "Subject" , getVar("Subject") )			
-	.log("Position", row.Position)
-	.log("Xpos.absolute", row.X_position) // X position measured in pixels
-	.log("Y.absolute", row.Y_position) // Y position measured in pixess
-	.log("Xpos.relative", row.relXpos) // X position measured in percentage of screen
-	.log("Ypos.relative", row.relYpos)  // Y position measured in percentage of screen   
-	.log("Xpos", (row.relXpos * window.innerWidth))		 // Log the X coordinate of the stimulus in px
-	.log("Ypos", (row.relYpos * window.innerHeight))		 // Log the Y coordinate of the stimulus in px	
-	.log( "ViewportWidth" , window.innerWidth ) // Screensize: width
-	.log( "ViewportHeight", window.innerHeight ) // Screensize: heigth			
+        ,
+        getVar("trialsLeftbeforeCalibration")
+            .set( v => v-1)           
+    )
+    .setOption("hideProgressBar", true)
+        .log( "Subject" , getVar("Subject") )           
+    .log("Position", row.Position)
+    .log("Xpos.absolute", row.X_position) // X position measured in pixels
+    .log("Y.absolute", row.Y_position) // Y position measured in pixess
+    .log("Xpos.relative", row.relXpos) // X position measured in percentage of screen
+    .log("Ypos.relative", row.relYpos)  // Y position measured in percentage of screen   
+    .log("Xpos", (row.relXpos * window.innerWidth))      // Log the X coordinate of the stimulus in px
+    .log("Ypos", (row.relYpos * window.innerHeight))         // Log the Y coordinate of the stimulus in px  
+    .log( "ViewportWidth" , window.innerWidth ) // Screensize: width
+    .log( "ViewportHeight", window.innerHeight ) // Screensize: heigth          
 )
 
 PennController("QuestionnairePage",
