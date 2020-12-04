@@ -185,7 +185,6 @@ PennController.Template("FixationTrials.csv",
         }).call()
         ,
         newText("fixationText", "<p>+</p>")
-                .settings.css("font-size", "25vh")
                     .settings.css("font-family", "avenir")
                     .settings.color("black")
         ,
@@ -198,7 +197,7 @@ PennController.Template("FixationTrials.csv",
             .wait()
         ,       
         newCanvas("trackedCanvas", "25vh", "25vh") // Tracked canvases are slighlty larged than the fixation cross (note that we use 'vh' to determine the canvas width as well, so it's a square)
-            .add( "center at 50%" , "middle at 50%" , getText("fixationText") )
+            .add( "center at 50%" , "middle at 50%" , getText("fixationText").css("font-size", "25vh"))
             .print(row.X_position, row.Y_position)
         ,             
         getEyeTracker("tracker")                 
