@@ -130,17 +130,12 @@ window.PennController._AddElementType("EyeTracker", function(PennEngine) {
          // Launches calculation per se
         $(this).attr('disabled', true);
         calibrationDiv.find('button').remove();
-        calibrationDiv.append($("<p>+</p>").css({position: 'absolute', top: "calc(50vh - 1.5vw)", left: "48.5vw", width: "5vw", height: "5vw"}));
-            timeleft = 3;
-            downloadTimer = setInterval(function(){
-              if(timeleft <= 0){
-                clearInterval(downloadTimer);
-              } else {
-                document.getElementById("countdown").innerHTML = timeleft;
-              }
-              timeleft -= 1;
-            }, 1000);
-        calibrationDiv.append($("div").html("countdown"));        
+        calibrationDiv.append($("<p>+</p>").css({position: 'absolute', top: "calc(50vh - 1.5vw)", left: "48.5vw", width: "5vw", height: "5vw"}
+                    @keyframes{
+                    0%{opacity: 0;}
+                    50%{opacity: .5;}
+                    100%{opacity: 1;}
+                    }));    
                 storePoints = true;
                 setTimeout(()=>{
                     console.log("Past 50", past50Array);
