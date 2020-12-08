@@ -5,7 +5,6 @@ PennController.DebugOff() // Don't show the debug window
 EyeTrackerURL("https://users.ugent.be/~mslim/PCIbexData/EyeTracker.php")
 AddHost("https://users.ugent.be/~mslim/VW_DWR_Stimuli/images/");
 
-/*
 Sequence("Checks", "Welcome", "Consent", "WebcamSetUp", "CalibrationSetUp", "Instructions", randomize("Trials"), "QuestionnairePage", "Send", "Final")
 
 // Check for L1
@@ -126,8 +125,6 @@ PennController("Consent",
 )
 .setOption("hideProgressBar", true) 
 
-*/
-
 //Webcam set-up and calibration
 newTrial("WebcamSetUp",
     newImage("logo", "logo_UGent_EN_RGB_2400_color.png")
@@ -215,6 +212,7 @@ PennController.Template("FixationTrials.csv",
                     }).call()
                     ,
                     getEyeTracker("tracker").calibrate(5)
+                        .log()
                     ,
                     newFunction( ()=>{
                         $("body").css({
