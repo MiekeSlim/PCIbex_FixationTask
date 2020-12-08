@@ -122,9 +122,13 @@ window.PennController._AddElementType("EyeTracker", function(PennEngine) {
         // Will print a button in the middle of the screen
         let startCalculation = ()=>{
             calibrationDiv.find('button').remove();
-            calibrationDiv.append($("<button>+</button>").css({
-                position: 'absolute', top: 'calc(50vh - 1.25vw)', bottom: '48.75vw', width: "2.5vw", height: "2.5vw"
+            calibrationDiv.append($("<button>Click<br>here!</button>").css({
+                position: 'absolute', top: 'calc(50vh - 1.5vw)', bottom: '48.5vw', width: "3vw", height: "3vw"
             }).click(function(){
+                calibrationDiv.find('button').remove();
+                calibrationDiv.append($("<p>Look<br>here!<\p>").css({
+                position: 'absolute', top: 'calc(50vh - 1.5vw)', bottom: '48.5vw', width: "3vw", height: "3vw"
+                })
                 // Launches calculation per se
                 $(this).attr('disabled', true);
                 storePoints = true;
