@@ -132,7 +132,7 @@ newTrial("Instructions",
     ,
     newButton("Go to the first trial").print().wait()
     ,
-    newVar("trialsLeftbeforeCalibration", 9)
+    newVar("trialsLeftbeforeCalibration", 13)
     .global()   
 )
 
@@ -171,7 +171,7 @@ PennController.Template("FixationTrials.csv",
                         }).call()
                     ,
                     getVar("trialsLeftbeforeCalibration")
-                                .set(9)
+                                .set(13)
                     )
         ,   
         // Hide the cursor
