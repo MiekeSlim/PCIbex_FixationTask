@@ -66,9 +66,9 @@ PennController("Checks",
             ,
             newButton("waitforever")
                 .wait()
-        )
-        .setOption("hideProgressBar", true)       
+        )      
 )
+.setOption("hideProgressBar", true) 
 
 // Welcome text
 PennController("Welcome",
@@ -93,6 +93,7 @@ PennController("Welcome",
         .print("40vw", "80vh")
         .wait()
 )
+.setOption("hideProgressBar", true) 
 
 PennController("Consent",
     newImage("logo", "logo_UGent_EN_RGB_2400_color.png")
@@ -110,6 +111,7 @@ PennController("Consent",
             .print("40vw", "80vh")
             .wait()
 )
+.setOption("hideProgressBar", true) 
 
 //Webcam set-up and calibration
 newTrial("WebcamSetUp",
