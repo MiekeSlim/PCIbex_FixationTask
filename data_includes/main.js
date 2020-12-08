@@ -100,9 +100,9 @@ PennController("Consent",
         .settings.add(0,0, getText("ConsentText"))
         .print("20vw", "15vh")
     ,
-    newCanvas( "myCanvas", "60vw" , "20vh")
-        .settings.add(0,0, getText("Chrome"))
-        .print("20vw", "40vh")          
+    newImage("logo", "logo_UGent_EN_RGB_2400_color.png")
+        .size("10vw")       
+        .print("20vh","5vh")
     ,
     newButton("I have read the study information and give my informed consent. Continue to the next page")
             .center()
