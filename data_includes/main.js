@@ -5,24 +5,25 @@ PennController.DebugOff() // Don't show the debug window
 EyeTrackerURL("https://users.ugent.be/~mslim/PCIbexData/EyeTracker.php")
 AddHost("https://users.ugent.be/~mslim/VW_DWR_Stimuli/images/");
 
-/*
 Sequence("Checks", "Welcome", "WebcamSetUp", "CalibrationSetUp", "Instructions", randomize("Trials"), "QuestionnairePage", "Send", "Final")
 
 // Check for L1
 PennController("Checks",
-    newText("Two short questions before we begin:")
-        .print()
+    newImage("logo", "logo_UGent_EN_RGB_2400_color.png")
+        .size("10vw")       
+        .print("5vh","15vh")
+    ,           
+    newText("Consent", "Two short questions before we begin: <br><br> We will use your webcam to collect data on where you are looking on the screen. We will <b> not </b> collect any video data or any other type of data that may reveal your identity. Do you give us permission to use your webcam?<br><br>")
     ,
-    newText("Consent", "<br><br> We will use your webcam to collect data on where you are looking on the screen. We will <b> not </b> collect any video data or any other type of data that may reveal your identity. Do you give us permission to use your webcam?<br><br>")
-        .center()
-    .print()
+    newCanvas( "myCanvas", "60vw" , "20vh")
+        .settings.add(0,0, getText("Consent"))
+        .print("20vw", "20vh")
+    ,    
+    newButton("yesConsent", "Yes, I give my permission")
     ,
-    newButton("yesConsent", "Yes")
-    ,
-    newButton("noConsent", "No")
+    newButton("noConsent", "No, I don't give my permission")
         .settings.before( getButton("yesConsent") )
-    .center()       
-        .print()
+        .print("20vw" , "32vh")
     ,
     newSelector("yesnoConsent")
         .settings.add( getButton("yesConsent") , getButton("noConsent"))
@@ -32,21 +33,24 @@ PennController("Checks",
         .settings.log()
         .test.selected(getButton("yesConsent") )
         .failure(
-            newText("<br><br> Please close the experiment by closing the browser (you may ignore possible pop-up screens) <br><br>")
-                .print()
+            newCanvas("NoPermision", "60vw" , "20vh").settings.add(0,0, newText("<br><br>Unfortunately you cannot participate in this study. Please close the experiment by closing the browser (you can ignore possible pop-up screens) <br><br>"))
+                .print("20vw", "32vh")
             ,
-            newKey("SPACE")
-            .wait()
+            newButton("waitforever")
+                .wait()
         )         
     ,          
-    newText("Chrome", "<br><br>Are you currently using <b> Google Chrome Desktop </b>? <br><br>")
-        .print()
+    newText("Chrome", "This study only works well if you are using the Google Chrome browser on a laptop or desktop computer (so not on a mobile phone or tablet). Are you currently using <b> Google Chrome Desktop </b>? <br><br>")
     ,
-    newButton("yesChrome", "Yes")
+    newCanvas( "myCanvas", "60vw" , "20vh")
+        .settings.add(0,0, getText("Chrome"))
+        .print("20vw", "40vh")
+    ,    
+    newButton("yesChrome", "Yes, I am currently using Chrome Desktop")
     ,
-    newButton("noChrome", "No")
+    newButton("noChrome", "No, I am using another browser/device")
         .settings.before( getButton("yesChrome") )
-        .print()
+        .print("20vw" , "50vh")
     ,
     newSelector("yesnoChrome")
     .center()       
@@ -57,15 +61,14 @@ PennController("Checks",
         .settings.log()
         .test.selected(getButton("yesChrome") )
         .failure(
-            newText("<br><br>Unfortunately, this experiment only works on Google Chrome (which can be downloaded for free). Please close the experiment by closing the browser (you may ignore possible pop-up screens), and come back on Chrome.<br><br>")
-                .print()
+            newCanvas("WrongBrowser", "60vw" , "20vh").settings.add(0,0, newText("<br><br>Unfortunately, this experiment only works on Google Chrome (which can be downloaded for free). Please close the experiment by closing the browser (you may ignore possible pop-up screens), and come back on Chrome.<br><br>"))
+                .print("20vw" , "50vh")
             ,
-            newKey("SPACE")
-            .wait()
+            newButton("waitforever")
+                .wait()
         )
 )
 
-*/
 // Welcome text
 PennController("Welcome",
     newText("WelcomeText", "<p>Welcome and thank you for participating in this experiment! </p><p> </p><p> Cognitive scientists often record eye movements to study human behaviour, because eye movements tell a lot about how we divide our attention and how we make decisions. In typical eye-tracking studies, we use expensive eye-tracking devices to record where people are looking on a computer screen. In this experiment, we will test whether we can also use consumer-grade webcams to collect eye-movement data to conduct cognitive research. We will <b> not </b> collect any video data or any other type of data that may reveal your identity: We only collect data on where on the screen your eyes are looking during the experiment. </p><p> </p><p> The task is very simple, and should take you roughly 5-10 minutes to complete. A cross (+) will appear at various positions on your screen. Please look at each cross that appears, untill it disappears. <br> <br>  Because we will use your webcam to follow your eye movements during this task. It is therefore important that you are in a well-lit and quiet environment. Please turn off your mobile phone or other devices that may distract you during this task. Also, please close other websites that you may have open.</p> <p> If you have any questions about this experiment, feel free to get in touch with me (Mieke Slim) via email: mieke.slim@ugent.be</p>")
