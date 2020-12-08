@@ -314,7 +314,7 @@ PennController("QuestionnairePage",
 
 PennController.SendResults("Send");
 
-newTrial("Final",
+newTrial("Final",    
     exitFullscreen()
     ,
     newImage("logo", "logo_UGent_EN_RGB_2400_color.png")
@@ -333,4 +333,4 @@ newTrial("Final",
     ,     
     newButton("waitforever").wait() // Not printed: wait on this page forever
 )
-.setOption("countsForProgressBar",false)
+    .setOption("hideProgressBar", true)
