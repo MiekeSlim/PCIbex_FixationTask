@@ -81,8 +81,8 @@ PennController("Welcome",
         .set( getTextInput("Subject") )
     ,
     newImage("logo", "logo_UGent_EN_RGB_2400_color.png")
-        .size("15vw")       
-        .print(0,"5vh")
+        .size("10vw")       
+        .print("5vh","15vh")
     ,           
     newButton("Take me to the next page")
         .center()
