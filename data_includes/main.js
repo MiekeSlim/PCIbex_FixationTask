@@ -176,7 +176,7 @@ newTrial("CalibrationSetUp",
 
 // Experiment instructions
 newTrial("Instructions", 
-    newText("TaskInstructions", "<p>You're all set to start the experiment! The task is very simple: Please look closely at all crosses that appear on the screen untill they disappear. <br> <br> Every now and then, a button will appear in the middle of your screen. Click on this button and look at the center of your screen for three seconds. The webcam will check whether it is still calibrated. If it is, the next trial will automatically start. Otherwise, the calibration procedure will be repeated. <br><br>  During the trials, you don't need to click on anything: Just look at the crosses! <br><br> The task should take roughly 5 minutes.</p>")
+    newText("TaskInstructions", "<p>You're all set to start the experiment! The task is very simple: Please look closely at all crosses that appear on the screen untill they disappear. <br> <br> You don't have to do anything else during this task, but every now and then a button will appear in the middle of your screen. Click on this button and look at the center of your screen for three seconds. The webcam will check whether it is still calibrated. If it is, the next trial will automatically start. Otherwise, the calibration procedure will be repeated. <br><br> The task should take roughly 5 minutes.</p>")
     ,
     newCanvas("myCanvas", "60vw" , "60vh")
         .settings.add(0,0, getText("TaskInstructions"))
@@ -325,11 +325,11 @@ newTrial("Final",
         .size("20vw")       
         .print("55vw","2vh")                           
     ,       
-    newText("Final","The is the end of the experiment, you can now close this window. Thank you! <br> If you have any questions or if you want to know more about the results, you can contact me via mieke.slim@ugent.be")
+    newText("Final","The is the end of the experiment, you can now close this window. Thank you! <br> If you have any questions or if you want to know more about the results, please get in touch with me via mieke.slim@ugent.be")
     ,
     newCanvas("myCanvas", "60vw" , "60vh")
         .settings.add(0,0, getText("Final"))
-        .print() 
+        .print("22vw", "20vh") 
     ,     
     newButton("waitforever").wait() // Not printed: wait on this page forever
 )
