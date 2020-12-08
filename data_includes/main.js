@@ -176,7 +176,7 @@ newTrial("CalibrationSetUp",
 
 // Experiment instructions
 newTrial("Instructions", 
-    newText("TaskInstructions", "<p>You're all set to start the experiment! Please look closely at all crosses that appear on the screen. <br> <br> Every now and then, you'll see a button in the middle of your screen. Click on this button and look at it for three seconds. The webcam will check whether it is still calibrated. If it is, the next trial will automatically start. Otherwise, the calibration procedure will be repeated. <br><br>  During the trials, you don't need to click on anything: Just look at the crosses! <br><br> The task should take roughly 3-5 minutes.</p>")
+    newText("TaskInstructions", "<p>You're all set to start the experiment! The task is very simple: Please look closely at all crosses that appear on the screen untill they disappear. <br> <br> Every now and then, a button will appear in the middle of your screen. Click on this button and look at the center of your screen for three seconds. The webcam will check whether it is still calibrated. If it is, the next trial will automatically start. Otherwise, the calibration procedure will be repeated. <br><br>  During the trials, you don't need to click on anything: Just look at the crosses! <br><br> The task should take roughly 5 minutes.</p>")
     ,
     newCanvas("myCanvas", "60vw" , "60vh")
         .settings.add(0,0, getText("TaskInstructions"))
