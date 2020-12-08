@@ -287,6 +287,14 @@ PennController("QuestionnairePage",
                 cursor: 'default'
        });
     }).call()
+    ,                  
+    newImage("logo", "logo_UGent_EN_RGB_2400_color.png")
+        .size("10vw")       
+        .print("20vw","00vh")
+    ,
+    newImage("logo2", "icon_UGent_PP_EN_RGB_2400_color.png")
+        .size("20vw")       
+        .print("55vw","2vh")                           
     ,                
     newHtml("Questionnaire", "Questionnaire.html")
         .settings.log()
