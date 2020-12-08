@@ -199,28 +199,28 @@ window.PennController._AddElementType("EyeTracker", function(PennEngine) {
                 // getGazer().showPredictionPoints(true);
                 calibrationDiv
                     .append($("<button>Click<br>here!</button>").css({
-                        position: 'absolute', top: "0.5vw", left: 0, width: "3vw", height: "3vw"
+                        position: 'absolute', top: "1vw", left: "1vw", width: "3vw", height: "3vw"
                     }).click(click))
                     .append($("<button>Click<br>here!</button>").css({
-                        position: 'absolute', top: "0.5vw", right: 0, width: "3vw", height: "3vw"
+                        position: 'absolute', top: "1vw", right: "1vw", width: "3vw", height: "3vw"
                     }).click(click))
                     .append($("<button>Click<br>here!</button>").css({
-                        position: 'absolute', bottom: "0.5vw", left: 0, width: "3vw", height: "3vw"
+                        position: 'absolute', bottom: "1vw", left: "1vw", width: "3vw", height: "3vw"
                     }).click(click))
                     .append($("<button>Click<br>here!</button>").css({
-                        position: 'absolute', bottom: "0.5vw", right: 0, width: "3vw", height: "3vw"
+                        position: 'absolute', bottom: "1vw", right: "1vw", width: "3vw", height: "3vw"
                     }).click(click))
                     .append($("<button>Click<br>here!</button>").css({
-                        position: 'absolute', top: 'calc(50vh - 1.5vw)', left: 0, width: "3vw", height: "3vw"
+                        position: 'absolute', top: 'calc(50vh - 1.5vw)', left: "1vw", width: "3vw", height: "3vw"
                     }).click(click))
                     .append($("<button>Click<br>here!</button>").css({
-                        position: 'absolute', top: "0.5vw", left: '48.5vw', width: "3vw", height: "3vw"
+                        position: 'absolute', top: "1vw", left: '48.5vw', width: "3vw", height: "3vw"
                     }).click(click))
                     .append($("<button>Click<br>here!</button>").css({
-                        position: 'absolute', top: 'calc(50vh - 1.5vw)', right: 0, width: "3vw", height: "3vw"
+                        position: 'absolute', top: 'calc(50vh - 1.5vw)', right: "1vw", width: "3vw", height: "3vw"
                     }).click(click))
                     .append($("<button>Click<br>here!</button>").css({
-                        position: 'absolute', bottom: "0.5vw", left: '48.5vw', width: "3vw", height: "3vw"
+                        position: 'absolute', bottom: "1vw", left: '48.5vw', width: "3vw", height: "3vw"
                     }).click(click));
             }));
             showTracker(true);
