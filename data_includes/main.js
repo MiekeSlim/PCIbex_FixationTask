@@ -157,7 +157,7 @@ newTrial("WebcamSetUp",
 
 // Calibration page
 newTrial("CalibrationSetUp",
-    newText("CalibrationInstructions", "<p>In the calibration procedure, you will see eight buttons on your screen. Please click on all these buttons and follow your cursor closely with your eyes. Once you've clicked on all buttons, a new button will appear in the middle of the screen. Please click on this button and look at it for three seconds so the algorithm can check whether it's well calibrated.</p> <p> In case calibration fails, the procedure will be repeated. </p>")
+    newText("CalibrationInstructions", "<p>In the calibration procedure, you will see eight buttons on your screen. Please click on all these buttons and follow your cursor closely with your eyes. <br><br> Once you've clicked on all buttons, a new button will appear in the middle of the screen. Please click on this button and look at the centre of your screen for three seconds. In these three seconds, the webcam eyetracker checks whether it's well calibrated.</p> <p> In case calibration fails, the procedure will be repeated. </p>")
     ,
     newCanvas("myCanvas", "60vw" , "60vh")
         .settings.add(0,0, getText("CalibrationInstructions"))
