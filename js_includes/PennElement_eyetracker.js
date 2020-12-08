@@ -1,9 +1,6 @@
 // EYETRACKER element
 /* $AC$ PennController.newEyeTracker(name) Creates a new EyeTracker element $AC$ */
 /* $AC$ PennController.getEyeTracker(name) Retrieves an existing EyeTracker element $AC$ */
-var Hres = "400px"      // height of the set screen (in px)
-var Wres = "300px"      // width of the set screen (in px)
-
 window.PennController._AddElementType("EyeTracker", function(PennEngine) {
 
     let tracker;
@@ -109,6 +106,7 @@ window.PennController._AddElementType("EyeTracker", function(PennEngine) {
         return Math.round(precision);
     };
 
+
     // Shows a calibration screen
     function calibrate(resolve, element, threshold, remainingAttempts){
         // Start training the model
@@ -118,19 +116,17 @@ window.PennController._AddElementType("EyeTracker", function(PennEngine) {
         PennEngine.debug.log("Starting calibration");
         past50Array = [[], []];                 // To keep track of 50 last looks
         let calibrationDiv = $("<div>").css({
-            position: 'absolute', left: "1.5vw", top: "1.5vh", width: "97vw", height: "97vh",
+            position: 'absolute', left: 0, top: 0, width: "100vw", height: "100vh",
             'background-color': 'white', 'text-align': 'center'
         });
         // Will print a button in the middle of the screen
         let startCalculation = ()=>{
             calibrationDiv.find('button').remove();
-            calibrationDiv.append($("<button>Click<br>here!</button>").css({
-                position: 'absolute', top: "calc(50vh - 1.5vw)", left: "48.5vw", width: "3vw", height: "3vw"
+            calibrationDiv.append($("<button>+</button>").css({
+                position: 'absolute', top: 'calc(50vh - 1.25vw)', bottom: '48.75vw', width: "2.5vw", height: "2.5vw"
             }).click(function(){
                 // Launches calculation per se
-        $(this).attr('disabled', true);
-        calibrationDiv.find('button').remove();
-        calibrationDiv.append($("<p> Look<br>here! <\p>").css({position: 'absolute', top: "calc(50vh - 1.5vw)", left: "48.5vw", width: "3vw", height: "3vw", "font-size": "1vw"}));    
+                $(this).attr('disabled', true);
                 storePoints = true;
                 setTimeout(()=>{
                     console.log("Past 50", past50Array);
@@ -200,29 +196,29 @@ window.PennController._AddElementType("EyeTracker", function(PennEngine) {
                 showTracker(false);
                 // getGazer().showPredictionPoints(true);
                 calibrationDiv
-                    .append($("<button>Click<br>here!</button>").css({
-                        position: 'absolute', top: 0, left: 0, width: "3vw", height: "3vw"
+                    .append($("<button>+</button>").css({
+                        position: 'absolute', top: 0, left: 0, width: "2.5vw", height: "2.5vw"
                     }).click(click))
-                    .append($("<button>Click<br>here!</button>").css({
-                        position: 'absolute', top: 0, right: 0, width: "3vw", height: "3vw"
+                    .append($("<button>+</button>").css({
+                        position: 'absolute', top: 0, right: 0, width: "2.5vw", height: "2.5vw"
                     }).click(click))
-                    .append($("<button>Click<br>here!</button>").css({
-                        position: 'absolute', bottom: 0, left: 0, width: "3vw", height: "3vw"
+                    .append($("<button>+</button>").css({
+                        position: 'absolute', bottom: 0, left: 0, width: "2.5vw", height: "2.5vw"
                     }).click(click))
-                    .append($("<button>Click<br>here!</button>").css({
-                        position: 'absolute', bottom: 0, right: 0, width: "3vw", height: "3vw"
+                    .append($("<button>+</button>").css({
+                        position: 'absolute', bottom: 0, right: 0, width: "2.5vw", height: "2.5vw"
                     }).click(click))
-                    .append($("<button>Click<br>here!</button>").css({
-                        position: 'absolute', top: 'calc(50vh - 1.25vw)', left: 0, width: "3vw", height: "3vw"
+                    .append($("<button>+</button>").css({
+                        position: 'absolute', top: 'calc(50vh - 1.25vw)', left: 0, width: "2.5vw", height: "2.5vw"
                     }).click(click))
-                    .append($("<button>Click<br>here!</button>").css({
-                        position: 'absolute', top: 0, left: '48.75vw', width: "3vw", height: "3vw"
+                    .append($("<button>+</button>").css({
+                        position: 'absolute', top: 0, left: '48.75vw', width: "2.5vw", height: "2.5vw"
                     }).click(click))
-                    .append($("<button>Click<br>here!</button>").css({
-                        position: 'absolute', top: 'calc(50vh - 1.25vw)', right: 0, width: "3vw", height: "3vw"
+                    .append($("<button>+</button>").css({
+                        position: 'absolute', top: 'calc(50vh - 1.25vw)', right: 0, width: "2.5vw", height: "2.5vw"
                     }).click(click))
-                    .append($("<button>Click<br>here!</button>").css({
-                        position: 'absolute', bottom: 0, left: '48.75vw', width: "3vw", height: "3vw"
+                    .append($("<button>+</button>").css({
+                        position: 'absolute', bottom: 0, left: '48.75vw', width: "2.5vw", height: "2.5vw"
                     }).click(click));
             }));
             showTracker(true);
@@ -274,7 +270,7 @@ window.PennController._AddElementType("EyeTracker", function(PennEngine) {
         sessionID = PennEngine.utils.guidGenerator();
         initiated = true;
         let webgazer = document.createElement('script');
-        webgazer.setAttribute('src','https://users.ugent.be/~mslim/WebGazer.js');
+        webgazer.setAttribute('src','https://expt.pcibex.net/static/webgazer/webgazer.min.js');
         document.head.appendChild(webgazer);
         let checkIfReady = () => {
             if (window.webgazer) {
