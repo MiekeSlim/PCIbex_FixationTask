@@ -5,6 +5,7 @@ PennController.DebugOff() // Don't show the debug window
 EyeTrackerURL("https://users.ugent.be/~mslim/PCIbexData/EyeTracker.php")
 AddHost("https://users.ugent.be/~mslim/VW_DWR_Stimuli/images/");
 
+/*
 Sequence("Checks", "Welcome", "Consent", "WebcamSetUp", "CalibrationSetUp", "Instructions", randomize("Trials"), "QuestionnairePage", "Send", "Final")
 
 // Check for L1
@@ -125,6 +126,8 @@ PennController("Consent",
 )
 .setOption("hideProgressBar", true) 
 
+*/
+
 //Webcam set-up and calibration
 newTrial("WebcamSetUp",
     newImage("logo", "logo_UGent_EN_RGB_2400_color.png")
@@ -138,11 +141,11 @@ newTrial("WebcamSetUp",
     newText("WebcamInstructions", "<p> Before the task begins, we need to calibrate your webcam so the experiment can follow your eye movements. On the next page, a calibration procedure will start. First, you will see the webcam recording on the top left corner of your screen. <br><br> Please make sure your face is fully visible. If you wear glasses, please make sure that they are not reflecting any ambient light.</p>")
     ,
     newImage("Instructions", "Instructions.png")
-        .size("60vw","20vw")
+        .size("60vw")
     ,
     newCanvas("myCanvas", "60vw" , "60vh")
         .settings.add(0,0, getText("WebcamInstructions"))
-        .settings.add(0,"40vh", getImage("Instructions"))
+        .settings.add(0,"20vh", getImage("Instructions"))
         .print()
     ,
     newButton("Take me to the next page (which will appear in fullscreen)")
