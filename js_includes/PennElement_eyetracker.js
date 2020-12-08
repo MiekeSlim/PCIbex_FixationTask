@@ -123,7 +123,7 @@ window.PennController._AddElementType("EyeTracker", function(PennEngine) {
         let startCalculation = ()=>{
             calibrationDiv.find('button').remove();
             calibrationDiv.append($("<button>Click<br>here!</button>").css({
-                position: 'absolute', top: 'calc(50vh - 1.5vw)', bottom: '48.5vw', width: "3vw", height: "3vw"
+                position: 'absolute', top: "calc(50vh - 1.5vw)", left: "48.5vw", width: "3vw", height: "3vw"
             }).click(function(){
                 // Launches calculation per se
                         $(this).attr('disabled', true);
