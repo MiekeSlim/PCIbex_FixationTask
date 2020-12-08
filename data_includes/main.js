@@ -11,7 +11,7 @@ Sequence("Checks", "Welcome", "Consent", "WebcamSetUp", "CalibrationSetUp", "Ins
 PennController("Checks",
     newImage("logo", "logo_UGent_EN_RGB_2400_color.png")
         .size("10vw")       
-        .print("5vh","15vh")
+        .print("20vh","0vh")
     ,           
     newText("Consent", "Two short questions before we begin: <br><br> We will use your webcam to collect data on where you are looking on the screen. We will <b> not </b> collect any video data or any other type of data that may reveal your identity. Do you give us permission to use your webcam?<br><br>")
     ,
