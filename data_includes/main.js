@@ -75,6 +75,8 @@ PennController("Checks",
 )
 .setOption("hideProgressBar", true) 
 
+*/
+
 // Welcome text
 PennController("Welcome",
     newImage("logo", "logo_UGent_EN_RGB_2400_color.png")
@@ -95,11 +97,11 @@ PennController("Welcome",
     ,
     newVar("Subject")
         .settings.global()
-        .set( getTextInput("Subject") )
+        .set(getTextInput("Subject") )
     ,          
     newButton("Take me to the next page")
         .center()
-        .print("40vw", "80vh")
+        .print("center at 50vw", "80vh")
         .wait()
 )
 .setOption("hideProgressBar", true) 
@@ -121,12 +123,11 @@ PennController("Consent",
     ,
     newButton("I have read the study information and give my informed consent. Continue to the next page")
             .center()
-            .print("40vw", "80vh")
+            .print("center at 50vw", "80vh")
             .wait()
 )
 .setOption("hideProgressBar", true) 
 
-*/
 
 //Webcam set-up and calibration
 newTrial("WebcamSetUp",
@@ -150,7 +151,7 @@ newTrial("WebcamSetUp",
     ,
     newButton("Take me to the next page (which will appear in fullscreen)")
         .center()
-        .print("40vw", "70vh")       
+        .print("center at 50vw", "80vh")    
         .wait( newEyeTracker("tracker").test.ready() ) 
     ,
     fullscreen()
@@ -167,7 +168,7 @@ newTrial("CalibrationSetUp",
     ,
     newButton("Begin calibration")
         .center()
-        .print()
+        .print("center at 50vw", "80vh")
         .wait( newEyeTracker("tracker").test.ready() )
         .remove()
     ,
@@ -184,7 +185,7 @@ newTrial("Instructions",
         .settings.add(0,0, getText("TaskInstructions"))
         .print()    
     ,
-    newButton("Go to the first trial").print().wait()
+    newButton("Go to the first trial").print("center at 50vw", "80vh").wait()
     ,
     newVar("trialsLeftbeforeCalibration", 13)
     .global()   
@@ -293,7 +294,7 @@ PennController("QuestionnairePage",
     ,                  
     newImage("logo", "logo_UGent_EN_RGB_2400_color.png")
         .size("10vw")       
-        .print("20vw","00vh")
+        .print("20vw","0vh")
     ,
     newImage("logo2", "icon_UGent_PP_EN_RGB_2400_color.png")
         .size("20vw")       
@@ -301,16 +302,18 @@ PennController("QuestionnairePage",
     ,                
     newHtml("Questionnaire", "Questionnaire.html")
         .settings.log()
-        .print()
+        .print("30vw","15vh")
     ,
     newButton("continue", "Continue")
-        .print()
+        .print("center at 45vw","60vh")
         .wait(
             getHtml("Questionnaire").test.complete()
                 .failure( getHtml("Questionnaire").warn() )
         )                      
               )
+    .setOption("hideProgressBar", true)          
     .log( "Subject" , getVar("Subject") )
+
 
 PennController.SendResults("Send");
 
