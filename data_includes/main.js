@@ -64,13 +64,17 @@ PennController("Checks",
         )
 )
 
-// Welcome page 
+// Welcome text
 PennController("Welcome",
-    newText("WelcomeText", "<p>Welcome and thank you for participating in this pilot! </p><p> </p><p> In this experiment, which should take roughly 5 minutes to finsih, a cross (+) will appear at various positions on your screen. The task is very simple: Please look at each cross that appears. <br> <br> We will use you webcam to follow your eye movements during this task. It is therefore important that you are in a well-lit and quiet environment. Please turn off your mobile phone or other devices that may distract you during this task. Also, please close other websites that you may have open.</p> <p> The purpose of this pilot is to test the accuracy of webcams to follow eye movements. If you have any questions about this experiment, you can contact me via email: mieke.slim@ugent.be </p>")
+    newText("WelcomeText", "<p>Welcome and thank you for participating in this experiment! </p><p> </p><p> Cognitive scientists often record eye movements to study human behaviour, because eye movements tell a lot about how we divide our attention and how we make decisions. In typical eye-tracking studies, we use expensive eye-tracking devices to record where people are looking on a computer screen. In this experiment, we will test whether we can also use consumer-grade webcams to collect eye-movement data to conduct cognitive research. We will <b> not </b> collect any video data or any other type of data that may reveal your identity: We only collect data on where on the screen your eyes are looking during the experiment. </p><p> </p><p> The task is very simple, and should take you roughly 5-10 minutes to complete. A cross (+) will appear at various positions on your screen. Please look at each cross that appears, untill it disappears. <br> <br>  Because we will use your webcam to follow your eye movements during this task. It is therefore important that you are in a well-lit and quiet environment. Please turn off your mobile phone or other devices that may distract you during this task. Also, please close other websites that you may have open.</p> <p> If you have any questions about this experiment, feel free to get in touch with me (Mieke Slim) via email: mieke.slim@ugent.be</p>")
+    ,   
+    newImage("logo", "logo_UGent_EN_RGB_2400_color.png")
+        .size("10vh", "10vh")
     ,
-    newCanvas( "myCanvas", 600 , 300)
-        .settings.add(0,0, getText("WelcomeText"))
-        .print()         
+    newCanvas( "myCanvas", "60vw" , "50vh")
+        .settings.add(0,0, getImage("logo"))
+        .settings.add(0,30, getText("WelcomeText"))
+        .print("20vw", "15vh")         
     ,
     newTextInput("Subject", randomnumber = Math.floor(Math.random()*1000000))    
     ,
@@ -80,7 +84,7 @@ PennController("Welcome",
     ,           
     newButton("Take me to the next page")
         .center()
-        .print()
+        .print("40vw", "75vh")
         .wait()
 )
 
