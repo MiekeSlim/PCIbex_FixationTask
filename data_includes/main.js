@@ -5,6 +5,7 @@ PennController.DebugOff() // Don't show the debug window
 EyeTrackerURL("https://users.ugent.be/~mslim/PCIbexData/EyeTracker.php")
 AddHost("https://users.ugent.be/~mslim/VW_DWR_Stimuli/images/");
 
+/*
 Sequence("Checks", "Welcome", "Consent", "WebcamSetUp", "CalibrationSetUp", "Instructions", randomize("Trials"), "QuestionnairePage", "Send", "Final")
 
 // Check for L1
