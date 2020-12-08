@@ -138,19 +138,19 @@ newTrial("WebcamSetUp",
         .size("20vw")       
         .print("55vw","0vh")                  
     ,                
-    newText("WebcamInstructions", "<p> Before the task begins, we need to calibrate your webcam so the experiment can follow your eye movements. On the next page, a calibration procedure will start. First, you will see the webcam recording on the top left corner of your screen. <br><br> Please make sure your face is fully visible. If you wear glasses, please make sure that they are not reflecting any ambient light.</p>")
+    newText("WebcamInstructions", "<p> Before the task begins, we need to calibrate your webcam so the experiment can follow your eye movements. On the next page, a calibration procedure will start. First, you will see the webcam recording on the top left corner of your screen. Please make sure your face is fully visible, and that you sit centrally in front of your webcam by following these instructions:.</p>")
     ,
     newImage("Instructions", "Instructions.png")
         .size("60vw")
     ,
     newCanvas("myCanvas", "60vw" , "60vh")
         .settings.add(0,0, getText("WebcamInstructions"))
-        .settings.add(0,"20vh", getImage("Instructions"))
+        .settings.add(0,"10vh", getImage("Instructions"))
         .print()
     ,
     newButton("Take me to the next page (which will appear in fullscreen)")
         .center()
-        .print("40vw", "80vh")       
+        .print("40vw", "70vh")       
         .wait( newEyeTracker("tracker").test.ready() ) 
     ,
     fullscreen()
