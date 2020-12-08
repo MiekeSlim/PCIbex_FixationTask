@@ -67,6 +67,7 @@ PennController("Checks",
             newButton("waitforever")
                 .wait()
         )
+        .setOption("hideProgressBar", true)       
 )
 
 // Welcome text
