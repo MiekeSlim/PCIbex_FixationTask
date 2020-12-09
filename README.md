@@ -60,3 +60,24 @@ newTrial("CalibrationSetUp",
 ```
 
 First, the participants will see instructions on how the calibration works. After they click on the button that says 'Begin calibration', the calibration procedure will start through the `getEyeTracker("tracker").calibrate(5)` command (see the [docs](https://www.pcibex.net/wiki/eyetracker-element/#menuToc-2). In this procedure, the participants will click on eight buttons that are placed along the edges of the screen. Afterwards, a new button will appear in the centre of the screen. Participants will look at the centre of the screen for three seconds. During these three seconds, the eye-tracker is calibrated so that a certain percentage of the estimated looks fall on the centre of the screen. The obtained calibration scores (expressed in % of looks on the centre of the screen during the three second time window) are then saved using the `.log()` command. Here, we set the required threshold really low (at 5%), in order to receive a wide range of calibration scores (which was relevant for our research aims). 
+
+After calibration is finished, the participants will be send to a page that provides the general instructions for the task:
+
+```
+newTrial("Instructions", 
+    newText("TaskInstructions", "<p>You're all set to start the experiment! The task is very simple: Please look closely at all crosses that appear on the screen untill they disappear. <br> <br> You don't have to do anything else during this task, but every now and then a button will appear in the middle of your screen. Click on this button and look at the center of your screen for three seconds. The webcam will check whether it is still calibrated. If it is, the next trial will automatically start. Otherwise, the calibration procedure will be repeated. <br><br> The task should take roughly 5 minutes.</p>")
+    ,
+    newCanvas("myCanvas", "60vw" , "60vh")
+        .settings.add(0,0, getText("TaskInstructions"))
+        .print()    
+    ,
+    newButton("Go to the first trial").print("center at 50vw", "80vh").wait()
+    ,
+    newVar("trialsLeftbeforeCalibration", 13)
+    .global()   
+)
+```
+This chunk of code is relatively straightforward: It displays the instruction text on the screen. However, we also generate a new variable: `newVar("trialsLeftbeforeCalibration", 13)`. During the experiment, a calibration button will be displayed after 13 trials. This variable keeps track of how many trials are left between that point of time and the next calibration button. This variable is set to `.global()`, so that it is accessible in the whole script (especially, in the part of the script that generates the experimental trials). 
+
+    .global()  
+
