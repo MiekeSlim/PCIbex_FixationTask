@@ -84,7 +84,4 @@ newTrial("Instructions",
 ```
 This chunk of code is relatively straightforward: It displays the instruction text on the screen. However, we also generate a new variable: `newVar("trialsLeftbeforeCalibration", 13)`. During the experiment, a calibration button will be displayed after 13 trials. This variable keeps track of how many trials are left between that point of time and the next calibration button. This variable is set to `.global()`, so that it is accessible in the whole script (especially, in the part of the script that generates the experimental trials). 
 
-    .global()  
-
-
 ## PennElement_eyetracker.js
