@@ -36,7 +36,7 @@ newTrial("WebcamSetUp",
 ```
 This chunk of code generates a page that provides the instructions on how to sit correctly in front of their webcams. More specifically, they will see [this image](https://users.ugent.be/~mslim/EyeTrackImgs/Instructions.png). Once they hit the 'take me to the next page' button, PCIbex will test whether the participant has given the browser permission to use the webcam (by using the `newEyeTracker("tracker").test.ready()` command). If the participant has granted acces to their webcams, the experiment will appear in fullscreen (through the `fullscreen()` command). 
 
-One the next page, a calibration procedure will start. 
+One the next page, a calibration procedure will start, which is implemented in the next chunk of code: 
 
 ```
 // Calibration page
@@ -58,3 +58,5 @@ newTrial("CalibrationSetUp",
 )
 .setOption("hideProgressBar", true) 
 ```
+
+First, the participants will see instructions on how the calibration works. After they click on the button that says 'Begin calibration', the calibration procedure will start through the `getEyeTracker("tracker").calibrate(5)` command (see the [docs](https://www.pcibex.net/wiki/eyetracker-element/#menuToc-2). In this procedure, the participants will click on eight buttons that are placed along the edges of the screen. Afterwards, a new button will appear in the centre of the screen. Participants will look at the centre of the screen for three seconds. During these three seconds, the eye-tracker is calibrated so that a certain percentage of the estimated looks fall on the centre of the screen. The obtained calibration scores (expressed in % of looks on the centre of the screen during the three second time window) are then saved using the `.log()` command. Here, we set the required threshold really low (at 5%), in order to receive a wide range of calibration scores (which was relevant for our research aims). 
