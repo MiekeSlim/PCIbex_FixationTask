@@ -2,6 +2,10 @@
 
 This repository contains code to implement a simple fixation task in PCIbex (Zehr & Schwarz, 2018). This script uses PCIbex's `eyetracker` element to record eye movement data. This element uses the WebGazer.js javascript library (Papoutsaki et al., 2016). For more information about collecting eye-tracking data with PCIbex, please see the [documentation](https://www.pcibex.net/wiki/eyetracker-element/) and [collecting eye-tracking data](https://www.pcibex.net/wiki/collecting-eye-tracking-data/) pages provided by PCIbex' developers. If you are not familiar with PCIbex, it is highl recommended that you check the [tutorial](https://www.pcibex.net/wiki/00-overview/) written by the PCIbex' developers. 
 
+[main.js](#main.js)  
+...snip...    
+<a name="main.js"/>
+
 ## main.js
 The main.js is the main experimental script. The 'eyetrack part' begins on line 129 (before that, we provide the instructions and consent form etc.). Let's break down the functionality of this script:
 
