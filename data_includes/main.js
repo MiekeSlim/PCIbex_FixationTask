@@ -247,13 +247,28 @@ PennController.Template("FixationTrials.csv",
         newTimer(500)
             .start()
             .wait()
-        ,       
-        newCanvas("trackedCanvas", "15vh", "5vh") // Tracked canvases are slighlty larged than the fixation cross (note that we use 'vh' to determine the canvas width as well, so it's a square)
+        ,
+        // Canvas that contains the target stimulus                  
+        newCanvas("trackedCanvas", "15vh", "15vh") 
             .add( "center at 50%" , "middle at 50%" , getText("fixationText").css("font-size", "15vh"))
             .print(row.X_position, row.Y_position)
-        ,                   
-        getEyeTracker("tracker")                 
-            .add(getCanvas("trackedCanvas"))  
+        ,
+        // Four canvases that specify the four quadrants of the screen.
+        newCanvas("Topleft", "50vw", "50vh")  
+            .print( "center at 25vw" , "middle at 25vh" )
+        ,
+        newCanvas("Topright", "50vw", "50vh")  
+            .print( "center at 75vw" , "middle at 25vh" )
+        ,
+        newCanvas("Bottomleft", "50vw", "50vh")  
+            .print( "center at 25vw" , "middle at 75vh" )
+        ,
+        newCanvas("Bottomright", "50vw", "50vh")  
+            .print( "center at 75vw" , "middle at 75vh" )
+        ,                  
+        getEyeTracker("tracker")  
+            // The eyetracker tracks the canvases: The "trackedCanvas" contains the target stimulus, the other four canvases specify the four quadrants on the screen.              
+            .add(getCanvas("trackedCanvas", getCanvas("Topleft") , getCanvas("Topright") , getCanvas("Bottomleft") , getCanvas("Bottomright")))  
             .start()
             .log()                
         ,
@@ -267,7 +282,7 @@ PennController.Template("FixationTrials.csv",
             .set( v => v-1)           
     )
     .setOption("hideProgressBar", true)
-        .log( "Subject" , getVar("Subject") )           
+    .log( "Subject" , getVar("Subject") )           
     .log("Position", row.Position)
     .log("Xpos.absolute", row.X_position) // X position measured in pixels
     .log("Y.absolute", row.Y_position) // Y position measured in pixess
