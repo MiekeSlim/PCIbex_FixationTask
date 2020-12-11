@@ -120,7 +120,7 @@ PennController("Consent",
     ,
     newButton("I have read the study information and give my informed consent. Continue to the next page")
             .center()
-            .print("center at 50vw", "80vh")
+            .print("center at 50vw", "95vh")
             .wait()
 )
 .setOption("hideProgressBar", true) 
