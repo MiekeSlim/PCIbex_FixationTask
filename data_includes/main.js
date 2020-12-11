@@ -285,7 +285,7 @@ PennController.Template("FixationTrials.csv",
     .log( "Subject" , getVar("Subject") )           
     .log("Position", row.Position)
     .log("Xpos.absolute", row.X_position) // X position measured in pixels
-    .log("Y.absolute", row.Y_position) // Y position measured in pixess
+    .log("Ypos.absolute", row.Y_position) // Y position measured in pixess
     .log("Xpos.relative", row.relXpos) // X position measured in percentage of screen
     .log("Ypos.relative", row.relYpos)  // Y position measured in percentage of screen   
     .log("Xpos", (row.relXpos * window.innerWidth))      // Log the X coordinate of the stimulus in px
