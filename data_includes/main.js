@@ -268,7 +268,7 @@ PennController.Template("FixationTrials.csv",
         ,                  
         getEyeTracker("tracker")  
             // The eyetracker tracks the canvases: The "trackedCanvas" contains the target stimulus, the other four canvases specify the four quadrants on the screen.              
-            .add(getCanvas("trackedCanvas", getCanvas("Topleft") , getCanvas("Topright") , getCanvas("Bottomleft") , getCanvas("Bottomright")))  
+            .add(getCanvas("trackedCanvas"), getCanvas("Topleft"), getCanvas("Topright"), getCanvas("Bottomleft"), getCanvas("Bottomright"))  
             .start()
             .log()                
         ,
