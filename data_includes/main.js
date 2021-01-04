@@ -134,7 +134,7 @@ newTrial("ProlificID_trial",
         .settings.add(0,0, getText("ProlificID_text"))
         .print("20vw", "15vh")
     ,         
-    newTextInput("ProlificID_input", "Fill in your Prolific ID here")
+    newTextInput("ProlificID_input")
          .print("20vw", "25vh")
     , 
     newVar("ProlificID")
