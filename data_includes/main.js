@@ -5,8 +5,8 @@ PennController.DebugOff() // Don't show the debug window
 EyeTrackerURL("https://users.ugent.be/~mslim/PCIbexData/EyeTracker.php")
 AddHost("https://users.ugent.be/~mslim/VW_DWR_Stimuli/images/");
 
-//Sequence("Checks", "Welcome", "Consent", "ProlificID", "WebcamSetUp", "CalibrationSetUp", "Instructions", randomize("Trials"), "QuestionnairePage", "Send", "Final")
-Sequence("ProlificID", "Send", "Final")
+//Sequence("Checks", "Welcome", "Consent", "ProlificID_trial", "WebcamSetUp", "CalibrationSetUp", "Instructions", randomize("Trials"), "QuestionnairePage", "Send", "Final")
+Sequence("ProlificID_trial", "Send", "Final")
 
 // Check for L1
 PennController("Checks",
@@ -127,23 +127,25 @@ PennController("Consent",
 .setOption("hideProgressBar", true) 
 
 //Prolific ID
-newTrial("ProlificID",
+newTrial("ProlificID_trial",
     newText("ProlificID_text", "<p> In order to process your payment on Prolific, we need your Prolific ID. Please fill in your Prolific ID number below.</p>")
     ,
     newTextInput("ProlificID_input", "Prolific ID")
-         .log()
     , 
     newCanvas("myCanvas", "60vw" , "60vh")
         .settings.add(0,0, getText("ProlificID_text"))
-        .settings.add("center at 50vw","10vh", getTextInput("ProlificID_input"))
+        .settings.add(0,"10vh", getTextInput("ProlificID_input"))
         .print("20vw", "15vh")
     ,    
+    newVar("ProlificID")
+        .settings.global()
+        .set( getTextInput("ProlificID_input") )
+    ,     
     newButton("Continue")
         .center()
         .print("center at 50vw", "30vh")    
         .wait()
 )
-.log("ProlificID" , getVar("ProlificID_input") )
 
 //Webcam set-up and calibration
 newTrial("WebcamSetUp",
