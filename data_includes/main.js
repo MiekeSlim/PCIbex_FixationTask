@@ -128,18 +128,18 @@ PennController("Consent",
 
 //Prolific ID
 newTrial("ProlificID_trial",
-    newText("ProlificID_text", "<p> In order to process your payment on Prolific, we need your Prolific ID. Please fill in your Prolific ID number below.</p>")
+    newText("ProlificID_text", "<p> In order to process your payment on Prolific, we need your Prolific ID.</p>")
     ,
-    newTextInput("ProlificID_input", "Prolific ID")
-    , 
     newCanvas("myCanvas", "60vw" , "60vh")
         .settings.add(0,0, getText("ProlificID_text"))
-        .settings.add(0,"10vh", getTextInput("ProlificID_input"))
         .print("20vw", "15vh")
-    ,    
+    ,         
+    newTextInput("ProlificID_input", "Fill in your Prolific ID here")
+         .print("20vw", "25vh")
+    , 
     newVar("ProlificID")
         .settings.global()
-        .set( getTextInput("ProlificID_input") )
+        .set(getTextInput("ProlificID_input") )
     ,     
     newButton("Continue")
         .center()
