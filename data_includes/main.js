@@ -5,8 +5,7 @@ PennController.DebugOff() // Don't show the debug window
 EyeTrackerURL("https://users.ugent.be/~mslim/PCIbexData/EyeTracker.php")
 AddHost("https://users.ugent.be/~mslim/VW_DWR_Stimuli/images/");
 
-//Sequence("Checks", "Welcome", "Consent", "ProlificID_trial", "WebcamSetUp", "CalibrationSetUp", "Instructions", randomize("Trials"), "QuestionnairePage", "Send", "Final")
-Sequence("ProlificID_trial", "Send", "Final")
+Sequence("Checks", "Welcome", "Consent", "ProlificID_trial", "WebcamSetUp", "CalibrationSetUp", "Instructions", randomize("Trials"), "QuestionnairePage", "Send", "Final")
 
 // Check for L1
 PennController("Checks",
@@ -127,26 +126,32 @@ PennController("Consent",
 .setOption("hideProgressBar", true) 
 
 //Prolific ID
-newTrial("ProlificID_trial",
-    newText("ProlificID_text", "<p> In order to process your payment on Prolific, we need your Prolific ID.</p>")
+PennController("ProlificID_trial",
+    newImage("logo", "logo_UGent_EN_RGB_2400_color.png")
+        .size("10vw")       
+        .print("20vw","00vh")
     ,
-    newCanvas("myCanvas", "60vw" , "60vh")
-        .settings.add(0,0, getText("ProlificID_text"))
-        .print("20vw", "15vh")
-    ,         
-    newTextInput("ProlificID_input")
-         .print("20vw", "25vh")
-    , 
+    newImage("logo2", "icon_UGent_PP_EN_RGB_2400_color.png")
+        .size("20vw")       
+        .print("55vw","2vh")                           
+    ,    
+    defaultText
+        .print()
+    ,
+    newText("<p>Please fill in your Prolific ID below, so we can process your payment</p>")
+    ,
+    newTextInput("ProlificID")
+        .print()
+    ,
+    newButton("Continue")
+        .print()
+        .wait()
+    ,
     newVar("ProlificID")
         .settings.global()
-        .set(getTextInput("ProlificID_input") )
-    ,     
-    newButton("Continue")
-        .center()
-        .print("center at 50vw", "30vh")    
-        .wait()
-)
-   .log( "ProlificID" , getVar("ProlificID") )
+        .set( getTextInput("ProlificID") )
+    )
+    .log( "ProlificID" , getVar("ProlificID") )
 
 //Webcam set-up and calibration
 newTrial("WebcamSetUp",
