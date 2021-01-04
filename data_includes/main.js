@@ -131,7 +131,8 @@ newTrial("ProlificID",
     newText("ProlificID_text", "<p> In order to process your payment on Prolific, we need your Prolific ID. Please fill in your Prolific ID number below.</p>")
     ,
     newTextInput("ProlificID_input", "Prolific ID")
-    ,     
+         .log()
+    , 
     newCanvas("myCanvas", "60vw" , "60vh")
         .settings.add(0,0, getText("ProlificID_text"))
         .settings.add("center at 50vw","10vh", getTextInput("ProlificID_input"))
