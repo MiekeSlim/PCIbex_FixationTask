@@ -125,6 +125,23 @@ PennController("Consent",
 )
 .setOption("hideProgressBar", true) 
 
+//Prolific ID
+newTrial("ProlificID",
+    newText("ProlificID_text", "<p> In order to process your payment on Prolific, we need your Prolific ID. Please fill in your Prolific ID number below.</p>")
+    ,
+    newTextInput("ProlificID_input", "Prolific ID")
+    ,     
+    newCanvas("myCanvas", "60vw" , "60vh")
+        .settings.add(0,0, getText("ProlificID_text"))
+        .settings.add(0,"10vh", getTextInput("ProlificID_input"))
+        .print("20vw", "15vh")
+    ,    
+    newButton("Continue")
+        .center()
+        .print("center at 50vw", "30vh")    
+        .wait()
+)
+.log("ProlificID" , getVar("ProlificID_input") )
 
 //Webcam set-up and calibration
 newTrial("WebcamSetUp",
@@ -340,7 +357,7 @@ newTrial("Final",
         .size("20vw")       
         .print("55vw","2vh")                           
     ,       
-    newText("Final","The is the end of the experiment. Please click on this link: <a href="https://app.prolific.co/submissions/complete?cc=66C714D9">https://app.prolific.co/submissions/complete?cc=66C714D9"</a> to return to Prolific, where your payment will be processed. You can now close this window. Thank you! <br> If you have any questions or if you want to know more about the results, please get in touch with me via mieke.slim@ugent.be")
+    newText("Final","The is the end of the experiment. Please click on this link: <p><a href='https://app.prolific.co/submissions/complete?cc=66C714D9'>https://app.prolific.co/submissions/complete?cc=66C714D9</a></p> to return to Prolific, where your payment will be processed. You can now close this window. Thank you! <br> If you have any questions or if you want to know more about the results, please get in touch with me via mieke.slim@ugent.be")
     ,
     newCanvas("myCanvas", "60vw" , "60vh")
         .settings.add(0,0, getText("Final"))
