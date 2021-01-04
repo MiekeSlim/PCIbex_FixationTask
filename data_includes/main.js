@@ -5,7 +5,8 @@ PennController.DebugOff() // Don't show the debug window
 EyeTrackerURL("https://users.ugent.be/~mslim/PCIbexData/EyeTracker.php")
 AddHost("https://users.ugent.be/~mslim/VW_DWR_Stimuli/images/");
 
-Sequence("Checks", "Welcome", "Consent", "ProlificID", "WebcamSetUp", "CalibrationSetUp", "Instructions", randomize("Trials"), "QuestionnairePage", "Send", "Final")
+//Sequence("Checks", "Welcome", "Consent", "ProlificID", "WebcamSetUp", "CalibrationSetUp", "Instructions", randomize("Trials"), "QuestionnairePage", "Send", "Final")
+Sequence("ProlificID", "Send", "Final")
 
 // Check for L1
 PennController("Checks",
@@ -133,7 +134,7 @@ newTrial("ProlificID",
     ,     
     newCanvas("myCanvas", "60vw" , "60vh")
         .settings.add(0,0, getText("ProlificID_text"))
-        .settings.add(0,"10vh", getTextInput("ProlificID_input"))
+        .settings.add("center at 50vw","10vh", getTextInput("ProlificID_input"))
         .print("20vw", "15vh")
     ,    
     newButton("Continue")
@@ -357,7 +358,7 @@ newTrial("Final",
         .size("20vw")       
         .print("55vw","2vh")                           
     ,       
-    newText("Final","The is the end of the experiment. Please click on this link: <p><a href='https://app.prolific.co/submissions/complete?cc=66C714D9'>https://app.prolific.co/submissions/complete?cc=66C714D9</a></p> to return to Prolific, where your payment will be processed. You can now close this window. Thank you! <br> If you have any questions or if you want to know more about the results, please get in touch with me via mieke.slim@ugent.be")
+    newText("Final","This is the end of the experiment. <strong> Please verify your participation on Prolific by clicking on this link: <p><a href='https://app.prolific.co/submissions/complete?cc=66C714D9'>https://app.prolific.co/submissions/complete?cc=66C714D9</a></p> </strong> <br> Thank you for your participation! If you have any questions or if you want to know more about the results, please get in touch with me via mieke.slim@ugent.be")
     ,
     newCanvas("myCanvas", "60vw" , "60vh")
         .settings.add(0,0, getText("Final"))
