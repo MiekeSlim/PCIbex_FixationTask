@@ -146,6 +146,7 @@ newTrial("ProlificID_trial",
         .print("center at 50vw", "30vh")    
         .wait()
 )
+   .log( "ProlificID" , getVar("ProlificID") )
 
 //Webcam set-up and calibration
 newTrial("WebcamSetUp",
