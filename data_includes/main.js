@@ -5,7 +5,7 @@ PennController.DebugOff() // Don't show the debug window
 EyeTrackerURL("https://users.ugent.be/~mslim/PCIbexData/EyeTracker.php")
 AddHost("https://users.ugent.be/~mslim/VW_DWR_Stimuli/images/");
 
-Sequence("WebcamSetUp", "CalibrationSetUp", "Instructions", randomize("Trials"))
+Sequence("Checks", "Welcome", "Consent", "ProlificID_trial", "WebcamSetUp", "CalibrationSetUp", "Instructions", randomize("Trials"), "QuestionnairePage", "Send", "Final")
 
 // Check for L1
 PennController("Checks",
@@ -218,11 +218,15 @@ newTrial("Instructions",
 PennController.Template("FixationTrials.csv",
     row => PennController("Trials", 
         // The callback commands lets us log the X and Y coordinates of the estimated gaze-locations at each recorded moment in time (Thanks to Jeremy Zehr for helping us construct this command)
-            newEyeTracker("tracker",1).callback( function (x,y) {
-                  if (this != getEyeTracker("tracker")._element.elements[0]) return;
-                  getEyeTracker("tracker")._element.counts._Xs.push(x);
-                  getEyeTracker("tracker")._element.counts._Ys.push(y); 
-                })
+            newEyeTracker("tracker",1).callback( (x,y)=>{
+                            getEyeTracker("tracker")._element.counts._Xs.push(x);
+                            getEyeTracker("tracker")._element.counts._Ys.push(y);
+                        })
+                            ,
+                            newFunction(()=>{
+                                getEyeTracker("tracker")._element.counts._Xs = [];
+                                getEyeTracker("tracker")._element.counts._Ys = [];
+                        }).call()  
             ,
             getVar("trialsLeftbeforeCalibration")
                 .test.is(0)
