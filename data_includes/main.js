@@ -163,7 +163,7 @@ newTrial("WebcamSetUp",
         .size("20vw")       
         .print("55vw","2vh")                           
     ,               
-    newText("WebcamInstructions", "<p> Before the task begins, we need to calibrate your webcam so the experiment can follow your eye movements. On the next page, a calibration procedure will start. First, you will see the webcam recording on the top left corner of your screen. Please make sure your face is fully visible, and that you sit centrally in front of your webcam by following these instructions:.</p>")
+    newText("WebcamInstructions", "<p> Before the task begins, we need to calibrate your webcam so the experiment can follow your eye movements. On the next page, a calibration procedure will start. First, you will see the webcam recording on the top left corner of your screen. Please make sure your face is fully visible, and that you sit centrally in front of your webcam by following these instructions:.</p> <p> The next pages will appear in fullscreen. <b> Please do not close the fullscreen for the remainder of this experiment </b></p>")
     ,
     newImage("Instructions", "Instructions.png")
         .size("60vw")
