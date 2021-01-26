@@ -89,13 +89,7 @@ PennController("Welcome",
     newCanvas( "myCanvas", "60vw" , "60vh")
         .settings.add(0,0, getText("WelcomeText"))       
         .print("20vw", "15vh")         
-    ,
-    newTextInput("Subject", randomnumber = Math.floor(Math.random()*1000000))    
-    ,
-    newVar("Subject")
-        .settings.global()
-        .set(getTextInput("Subject") )
-    ,          
+    ,      
     newButton("Take me to the next page")
         .center()
         .print("center at 50vw", "80vh")
@@ -309,8 +303,7 @@ PennController.Template("FixationTrials.csv",
         getVar("trialsLeftbeforeCalibration")
             .set( v => v-1)           
     )
-    .setOption("hideProgressBar", true)
-    .log( "Subject" , getVar("Subject") )           
+    .setOption("hideProgressBar", true)          
     .log("Position", row.Position)
     .log("Xpos.absolute", row.X_position) // X position measured in pixels
     .log("Ypos.absolute", row.Y_position) // Y position measured in pixess
@@ -352,7 +345,6 @@ PennController("QuestionnairePage",
         )                      
               )
     .setOption("hideProgressBar", true)          
-    .log( "Subject" , getVar("Subject") )
 
 
 PennController.SendResults("Send");
