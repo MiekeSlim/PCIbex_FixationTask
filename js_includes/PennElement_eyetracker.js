@@ -482,7 +482,7 @@ window.PennController._AddElementType("EyeTracker", function(PennEngine) {
         },
         ready: function(){
             return window.webgazer && window.webgazer.isReady();
-        }
+        },
         precisionAtLeast: function(atLeast){
             return lastPrecision >= atLeast;
         }
