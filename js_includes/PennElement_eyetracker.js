@@ -170,6 +170,7 @@ window.PennController._AddElementType("EyeTracker", function(PennEngine) {
                     }
                     // Threshold met: tracker is calibrated
                     else {
+                        lastPrecision = precision;
                         calibrated = true;
                         calibrationDiv.remove();
                         showTracker(false);
@@ -481,6 +482,9 @@ window.PennController._AddElementType("EyeTracker", function(PennEngine) {
         },
         ready: function(){
             return window.webgazer && window.webgazer.isReady();
+        }
+        precisionAtLeast: function(atLeast){
+            return lastPrecision >= atLeast;
         }
     }
 
