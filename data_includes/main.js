@@ -2,7 +2,7 @@ PennController.ResetPrefix(null) // Shorten command names (keep this)
 PennController.DebugOff() // Don't show the debug window
 
 // PHP script that receives, stores (and will also output) the eye-tracking data
-EyeTrackerURL("https://users.ugent.be/~mslim/PCIbexData/EyeTracker.php")
+//EyeTrackerURL("PUT YOUR URL HERE")
 AddHost("https://users.ugent.be/~mslim/VW_DWR_Stimuli/images/");
 
 Sequence("Checks", "Welcome", "Consent", "ProlificID_trial", "WebcamSetUp", "CalibrationSetUp", "Instructions", randomize("Trials"), "QuestionnairePage", "Send", "Final")
